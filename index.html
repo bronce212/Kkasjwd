@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interfaz Flotante Verde Neón</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff; /* Fondo blanco */
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      min-height: 100vh;
+      border: 10px solid #39ff14; /* Borde verde neón */
+      box-shadow: 0 0 25px #39ff14, inset 0 0 15px #39ff14; /* Difuminado */
+    }
+
+    h1, p {
+      text-align: center;
+      max-width: 700px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2em;
+    }
+
+    p {
+      margin: 20px 0;
+      font-size: 1.1em;
+    }
+
+    .editable {
+      outline: none;
+      border-bottom: 1px dashed #39ff14;
+      padding-bottom: 5px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .neon-button {
+      padding: 15px;
+      background: transparent;
+      border: 2px solid #39ff14;
+      color: #39ff14;
+      font-size: 1em;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .neon-button:hover {
+      transform: translateY(-3px);
+      background-color: rgba(57, 255, 20, 0.1);
+    }
+
+    .editable-panel {
+      display: none;
+      margin-top: 30px;
+      width: 90%;
+      max-width: 700px;
+      border: 2px dashed #39ff14;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f0fff0;
+    }
+
+    .editable-panel[contenteditable="true"]:focus {
+      outline: none;
+      box-shadow: 0 0 10px #39ff14;
+    }
+
+    @media (min-width: 500px) {
+      .button-container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="editable" contenteditable="true">Escribe tu título aquí</h1>
+  <p class="editable" contenteditable="true">
+    Escribe aquí tu texto principal. Puedes hacer clic y editar libremente este contenido.
+  </p>
+
+  <div class="button-container">
+    <button class="neon-button" onclick="mostrarPanel()">Core</button>
+    <button class="neon-button" onclick="mostrarPanel()">Cohetes</button>
+    <button class="neon-button" onclick="mostrarPanel()">Contactanos</button>
+  </div>
+
+  <div id="panel" class="editable-panel" contenteditable="true">
+    Haz clic aquí para editar esta sección adicional. Puedes escribir cualquier cosa.
+  </div>
+
+  <script>
+    function mostrarPanel() {
+      const panel = document.getElementById('panel');
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
